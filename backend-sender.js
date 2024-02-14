@@ -2,15 +2,26 @@
 // All subscription tokens associated with that key, so if you change it - you may lose old subscribers
 // You MUST need generate your own VAPID keys!
 // Newer share your PRIVATE_VAPID_KEY. It should be stored in a safe storage
-const VAPID_PUBLIC_KEY = "BAwUJxIa7mJZMqu78Tfy2Sb1BWnYiAatFCe1cxpnM-hxNtXjAwaNKz1QKLU8IYYhjUASOFzSvSnMgC00vfsU0IM"
-const VAPID_PRIVATE_KEY = "wH3Mire4Nrw7UWiYuD4e76qSezQ-5Nf_9n_HK3vHBSU";
+
+    /*
+Public Key:
+BAH3lauXWHqFKjP5lYnhT2-EqUdOZoRS4GPiUfu3RXMdkVDGNzqxYqW8ZMZO7JcZGbpozpwpd5yZV0q6NxPuBuk
+
+Private Key: THIS IS DEMO key.
+zpSM0NtSvV1vWuy--8aPJxbXmeacQjih3lMBSJTGAIU
+    */
+
+const VAPID_PUBLIC_KEY = "BAH3lauXWHqFKjP5lYnhT2-EqUdOZoRS4GPiUfu3RXMdkVDGNzqxYqW8ZMZO7JcZGbpozpwpd5yZV0q6NxPuBuk"
+const VAPID_PRIVATE_KEY = "zpSM0NtSvV1vWuy--8aPJxbXmeacQjih3lMBSJTGAIU";
 
 
 // npm install web-push
 const webpush = require('web-push');
 
+
+
 webpush.setVapidDetails(
-    'https://andreinwald.github.io/webpush-ios-example/',
+    'https://kunukn.github.io/webpush-ios-example/',
     VAPID_PUBLIC_KEY,
     VAPID_PRIVATE_KEY
 );

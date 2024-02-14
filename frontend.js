@@ -3,7 +3,8 @@ if (navigator.serviceWorker) {
 }
 
 async function initServiceWorker() {
-    let swRegistration = await navigator.serviceWorker.register('https://andreinwald.github.io/webpush-ios-example/serviceworker.js', {scope: '/webpush-ios-example/'})
+    let swRegistration = await navigator.serviceWorker.register('https://kunukn.github.io/webpush-ios-example/serviceworker.js', {scope: '/webpush-ios-example/'})
+    // let swRegistration = await navigator.serviceWorker.register('serviceworker.js', {scope: '/webpush-ios-example/'})
     let pushManager = swRegistration.pushManager;
 
     if (!isPushManagerActive(pushManager)) {
@@ -42,7 +43,16 @@ function isPushManagerActive(pushManager) {
 async function subscribeToPush() {
     // Public part of VAPID key, generation of that covered in README
     // All subscription tokens associated with that key, so if you change it - you may lose old subscribers
-    const VAPID_PUBLIC_KEY = 'BAwUJxIa7mJZMqu78Tfy2Sb1BWnYiAatFCe1cxpnM-hxNtXjAwaNKz1QKLU8IYYhjUASOFzSvSnMgC00vfsU0IM';
+
+    /*
+Public Key:
+BAH3lauXWHqFKjP5lYnhT2-EqUdOZoRS4GPiUfu3RXMdkVDGNzqxYqW8ZMZO7JcZGbpozpwpd5yZV0q6NxPuBuk
+
+Private Key: THIS IS DEMO key.
+zpSM0NtSvV1vWuy--8aPJxbXmeacQjih3lMBSJTGAIU
+    */
+    const VAPID_PUBLIC_KEY = 'BAH3lauXWHqFKjP5lYnhT2-EqUdOZoRS4GPiUfu3RXMdkVDGNzqxYqW8ZMZO7JcZGbpozpwpd5yZV0q6NxPuBuk';
+    
 
     let swRegistration = await navigator.serviceWorker.getRegistration();
     let pushManager = swRegistration.pushManager;
@@ -75,10 +85,10 @@ function testSend() {
     const title = "Push title";
     const options = {
         body: "Additional text with some description",
-        icon: "https://andreinwald.github.io/webpush-ios-example/images/push_icon.jpg",
+        icon: "https://kunukn.github.io/webpush-ios-example/images/push_icon.jpg",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg/1920px-Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg",
         data: {
-            "url": "https://andreinwald.github.io/webpush-ios-example/success.html",
+            "url": "https://kunukn.github.io/webpush-ios-example/success.html",
             "message_id": "your_internal_unique_message_id_for_tracking"
         },
     };
