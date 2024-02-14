@@ -7,9 +7,9 @@ _WebPush - is browser technology that allows site developer send notifications f
 - instead, you need to generate **VAPID** (pair of public and private keys)
 <br>
 
-<b>Demo https://kunukn.github.io/webpush-ios-example </b>
+<b>Demo https://kunukn.github.io/webpush-ios-example/ </b>
 
-<img src="images/webpush-iphone-prompt.png" alt="Iphone prompt example" style="height:400px">
+<img src="src/images/webpush-iphone-prompt.png" alt="Iphone prompt example" style="height:400px">
 
 ---
 # More info
