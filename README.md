@@ -55,9 +55,10 @@ Example of basic subscription code, that works in Google Chrome and Firefox.<br>
 </body>
 </html>
 ```
-You can run it locally by creating index.html and serviceworker.js files with a simple html server:
+You can run it locally
 ```shell
-npx http-server
+npm install
+npm start
 ```
 
 ## Generating VAPID key
@@ -71,6 +72,7 @@ You **don't need** to register at apple.com to receive something like **GCM_SEND
 Run these commands in your terminal:
 
 ```shell
+# https://www.npmjs.com/package/web-push
 npm install web-push -g
 web-push generate-vapid-keys
 ```
