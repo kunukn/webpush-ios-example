@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>WebPush iOS example</title>
+    <base href="https://kunukn.github.io/webpush-ios-example/">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="manifest" href="manifest.json"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="apple-touch-icon" href="images/favicon.png"> <!-- needed for phone PWA app icon -->
+</head>
+<body>
+<div class="wrapper">
+    <h1>WebPush iOS example</h1>
+
+    <div id="add-to-home-screen">
+        For WebPush work you may need to add this website to Home Screen at your iPhone or iPad (window.navigator is not
+        standalone).
+        <img src="images/webpush-add-to-home-screen.jpg" alt="webpush add to some screen">
+    </div>
+
+    <div id="scan-qr-code">Open this page at your iPhone/iPad:
+        <img src="images/qrcode.png" alt="qrCode"><br><br>
+    </div>
+
+    <button id="subscribe_btn" onclick="subscribeToPush()">Subscribe to notifications</button>
+
+    <div id="active_sub"></div>
+    <button id="test_send_btn" onclick="testSend()">Send test push</button>
+
+    <a id="source_link" href="https://github.com/kunukn/webpush-ios-example">Code of this page</a>
+</div>
+
+<script src="frontend.js"></script>
+</body>
+</html>
