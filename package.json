@@ -12,6 +12,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "npm": ">=9.0.0",
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "gh-pages": "^6.1.1",
