@@ -1,0 +1,18 @@
+{
+  "name": "@kunukn/webpush-ios-example",
+  "version": "1.0.0",
+  "description": "_WebPush - is browser technology that allows site developer send notifications from backend to subscribers. Now at iPhone and iPad!<br><br>_\r **TL;DR iOS WebPush specifics**\r - user required to add your site to **Home Screen** of his iPhone/iPad\r - manifest.json is required to set **display: standalone**\r - you **don't need** to register at apple.com to receive something like **GCM_SENDER_ID**\r - instead, you need to generate **VAPID** (pair of public and private keys)\r <br>",
+  "main": "backend-sender.js",
+  "homepage": "https://kunukn.github.io/webpush-ios-example",
+  "scripts": {
+    "deploy-storybook": "cross-env NODE_DEBUG=gh-pages gh-pages -d ./src -t true",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "gh-pages": "^6.1.1"
+  }
+}

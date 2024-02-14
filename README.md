@@ -7,18 +7,22 @@ _WebPush - is browser technology that allows site developer send notifications f
 - instead, you need to generate **VAPID** (pair of public and private keys)
 <br>
 
-<b>Demo https://andreinwald.github.io/webpush-ios-example </b>
+<b>Demo https://kunukn.github.io/webpush-ios-example </b>
 
 <img src="images/webpush-iphone-prompt.png" alt="Iphone prompt example" style="height:400px">
 
 ---
 # More info
-- [Basic WebPush subscription code](#Basic-WebPush-subscription-code)
-- [Generating VAPID key](#Generating-VAPID-key)
-- [Installing PWA on iOS by adding to Home Screen](#Installing-PWA-on-iOS-by-adding-to-Home-Screen)
-- [Subscription and saving token](#Subscription-and-saving-token)
-- [Service worker](#Service-worker)
-- [Sending push message](#Sending-push-message)
+- [WebPush for iOS sample code and demo site](#webpush-for-ios-sample-code-and-demo-site)
+- [More info](#more-info)
+  - [Basic WebPush subscription code](#basic-webpush-subscription-code)
+  - [Generating VAPID key](#generating-vapid-key)
+  - [Installing PWA on iOS by adding to Home Screen](#installing-pwa-on-ios-by-adding-to-home-screen)
+  - [Subscription and saving token](#subscription-and-saving-token)
+  - [Service worker](#service-worker)
+  - [Sending push message](#sending-push-message)
+  - [Resources:](#resources)
+  - [Keywords:](#keywords)
 
 ## Basic WebPush subscription code
 Example of basic subscription code, that works in Google Chrome and Firefox.<br>
@@ -67,14 +71,8 @@ You **don't need** to register at apple.com to receive something like **GCM_SEND
 Run these commands in your terminal:
 
 ```shell
-openssl ecparam -genkey -name prime256v1 -out vapid_private.pem
-openssl ec -in vapid_private.pem -pubout -outform DER|tail -c 65|base64|tr -d '=' |tr '/+' '_-' >> vapid_public.txt
-echo 'VAPID public:' ; cat vapid_public.txt
-# Example: BCa4t85iJ0AYDG__5r48lo-HNdpi_29458t8R6zRTsF1OUi1QyvCRd_tOyXVkqH3nzsZdMzSRLlKJTXQyN7QI4s
-
-openssl ec -in vapid_private.pem -outform DER|tail -c +8|head -c 32|base64|tr -d '=' |tr '/+' '_-' >> vapid_private.txt
-echo 'VAPID private:' ; cat vapid_private.txt
-# Example: Mz8GQ4Fx16dI-iEUZTp6KTLVsUrcIOfJmWWXlKb0Qgo
+npm install web-push -g
+web-push generate-vapid-keys
 ```
 
 Then use it:
