@@ -5,7 +5,7 @@
   "main": "backend-sender.js",
   "homepage": "https://kunukn.github.io/webpush-ios-example",
   "scripts": {
-    "deploy-storybook": "cross-env NODE_DEBUG=gh-pages gh-pages -d ./src -t true",
+    "deploy-page": "cross-env NODE_DEBUG=gh-pages gh-pages -d ./src -t true",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
