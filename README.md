@@ -178,10 +178,10 @@ You can send WebPush from **frontend**:
 const title = "Push title";
 const options = {
     body: "Additional text with some description",
-    icon: "https://andreinwald.github.io/webpush-ios-example/images/favicon.png",
+    icon: "https://kunukn.github.io/webpush-ios-example/images/favicon.png",
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg/1920px-Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg",
     data: {
-        "url": "https://andreinwald.github.io/webpush-ios-example/success.html",
+        "url": "https://kunukn.github.io/webpush-ios-example/success.html",
         "message_id": "your_internal_unique_message_id_for_tracking"
     },
 };

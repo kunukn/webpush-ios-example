@@ -6,6 +6,7 @@
   "homepage": "https://kunukn.github.io/webpush-ios-example",
   "scripts": {
     "deploy-page": "cross-env NODE_DEBUG=gh-pages gh-pages -d ./src -t true",
+    "start": "http-server ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "http-server": "^14.1.1"
   }
 }
