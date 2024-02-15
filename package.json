@@ -6,7 +6,7 @@
   "homepage": "https://kunukn.github.io/webpush-ios-example/",
   "scripts": {
     "deploy": "cross-env NODE_DEBUG=gh-pages gh-pages -d ./src -t true",
-    "start": "http-server ./src",
+    "start": "http-server ./src -o /",
     "https": "http-server ./src --ssl --cert ./.cert/cert.pem --key ./.cert/key.pem -o /",
     "test": "echo \"Error: no test specified\" && exit 1",
     "//install-mkcert": "https://github.com/FiloSottile/mkcert",
