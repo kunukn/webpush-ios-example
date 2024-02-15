@@ -17,6 +17,7 @@ _WebPush - is browser technology that allows site developer send notifications f
 - [More info](#more-info)
   - [Basic WebPush subscription code](#basic-webpush-subscription-code)
   - [Generating VAPID key](#generating-vapid-key)
+    - [You can push from server](#you-can-push-from-server)
   - [Installing PWA on iOS by adding to Home Screen](#installing-pwa-on-ios-by-adding-to-home-screen)
   - [Subscription and saving token](#subscription-and-saving-token)
   - [Service worker](#service-worker)
@@ -55,7 +56,7 @@ Example of basic subscription code, that works in Google Chrome and Firefox.<br>
 </body>
 </html>
 ```
-You can run it locally
+You can run it locally. Simple start.
 ```shell
 npm install
 npm start
@@ -89,7 +90,15 @@ let subscriptionOptions = {
 
 See full example in [frontend.js](/frontend.js)
 
+### You can push from server
 
+
+```shell
+# !! Ensure you have copied the correct keys into the backend-sender.js file.
+# Before running this.
+npm install
+npm run push
+```
 
 ## Installing PWA on iOS by adding to Home Screen
 WebPush is Progressive Web App(PWA) feature so you need to ask user to enable PWA mode first.<br>
@@ -149,6 +158,18 @@ And this will be for Google Chrome (FCM):
 ```json
 {
   "endpoint": "https://fcm.googleapis.com/fcm/send/eEsw5ryoAzo:APA91bHC...",
+  "expirationTime": null,
+  "keys": {
+    "p256dh": "BKDBx7wkagZSlDsaT...",
+    "auth": "zKa3taDY2VWoM4..."
+  }
+}
+```
+
+And this will be for Edge browser:
+```json
+{
+  "endpoint": "https://wns2-am3p.notify.windows.com/w/?token=BQYAAADmR5...",
   "expirationTime": null,
   "keys": {
     "p256dh": "BKDBx7wkagZSlDsaT...",
