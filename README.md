@@ -58,6 +58,7 @@ Example of basic subscription code, that works in Google Chrome and Firefox.<br>
 ```
 You can run it locally. Simple start.
 ```shell
+# You need NodeJS.
 npm install
 npm start
 ```
@@ -73,9 +74,9 @@ You **don't need** to register at apple.com to receive something like **GCM_SEND
 Run these commands in your terminal:
 
 ```shell
+# You need NodeJS.
 # https://www.npmjs.com/package/web-push
-npm install web-push -g
-web-push generate-vapid-keys
+npx web-push generate-vapid-keys --json
 ```
 
 Then use it:
