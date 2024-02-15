@@ -77,7 +77,7 @@ function displaySubscriptionInfo(subscription) {
     document.getElementById('subscribe_btn').style.display = 'none';
     document.getElementById('active_sub').style.display = 'block';
     document.getElementById('active_sub').innerHTML = '<h3>Active subscription:</h3>'
-       + '<textarea style="width: 100%; min-height: 200px;">' + JSON.stringify(subscription.toJSON()) + '</textarea>';
+       + '<textarea style="width: 100%; min-height: 120px;">' + JSON.stringify(subscription.toJSON()) + '</textarea>';
     document.getElementById('test_send_btn').style.display = 'block';
 }
 
