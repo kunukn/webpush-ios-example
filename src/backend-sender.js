@@ -11,12 +11,13 @@ Private Key: THIS IS DEMO key.
 zpSM0NtSvV1vWuy--8aPJxbXmeacQjih3lMBSJTGAIU
     */
 
+const webpush = require("web-push");
+
 const VAPID_PUBLIC_KEY =
   "BAH3lauXWHqFKjP5lYnhT2-EqUdOZoRS4GPiUfu3RXMdkVDGNzqxYqW8ZMZO7JcZGbpozpwpd5yZV0q6NxPuBuk";
 const VAPID_PRIVATE_KEY = "zpSM0NtSvV1vWuy--8aPJxbXmeacQjih3lMBSJTGAIU";
 
 // npm install web-push
-const webpush = require("web-push");
 
 webpush.setVapidDetails(
   "https://kunukn.github.io/webpush-ios-example/",
