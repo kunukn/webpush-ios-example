@@ -13,7 +13,9 @@
     "//install-mkcert": "https://github.com/FiloSottile/mkcert",
     "install-mkcert": "mkcert -install localhost",
     "create-cert-files-in-folder": "rm -rf .cert && mkdir .cert && npm run create-cert-files",
-    "create-cert-files": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem localhost"
+    "create-cert-files": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem localhost",
+    "create-cert-files-in-folder-external": "rm -rf .cert && mkdir .cert && npm run create-cert-files-external",
+    "create-cert-files-external": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem 10.99.53.189"
   },
   "keywords": [],
   "author": "",

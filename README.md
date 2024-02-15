@@ -63,6 +63,23 @@ npm install
 npm start
 ```
 
+Advanced using https.
+
+```shell
+# You need NodeJS.
+# Ensure you have installed mkcert on your OS.
+npm install
+npm run install-mkcert # Only done once. Skip if already installed.
+npm run create-cert-files-in-folder # installs the needed localhost certificate files for this web-app.
+npm run https # starts a server using the generated certificate files.
+
+# If you need to use an external ip like https://10.99.53.189:3033/ then re-generate the certificates with your ip.
+# See the script: "create-cert-files-external" in package.json and adjust the ip accordingly.
+# Then apply: npm run create-cert-files-in-folder-external
+# start https again nd open url in browser: https://10.99.53.189:3033/
+```
+
+
 ## Generating VAPID key
 In example above you need to replace VAPID_PUBLIC_KEY to your own.<br><br>
 
