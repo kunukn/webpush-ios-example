@@ -7,7 +7,12 @@
   "scripts": {
     "deploy": "cross-env NODE_DEBUG=gh-pages gh-pages -d ./src -t true",
     "start": "http-server ./src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "https": "http-server ./src --ssl --cert ./.cert/cert.pem --key ./.cert/key.pem -o /",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "//install-mkcert": "https://github.com/FiloSottile/mkcert",
+    "install-mkcert": "mkcert -install localhost",
+    "create-cert-files-in-folder": "rm -rf .cert && mkdir .cert && npm run create-cert-files",
+    "create-cert-files": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem 127.0.0.1"
   },
   "keywords": [],
   "author": "",
