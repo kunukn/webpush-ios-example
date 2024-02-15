@@ -6,14 +6,14 @@
   "homepage": "https://kunukn.github.io/webpush-ios-example/",
   "scripts": {
     "deploy": "cross-env NODE_DEBUG=gh-pages gh-pages -d ./src -t true",
-    "start": "http-server ./src -o / -p 8087",
-    "https": "http-server ./src --ssl --cert ./.cert/cert.pem --key ./.cert/key.pem -o / -p 8088",
+    "start": "browser-sync ./src -w --port 8089 --open",
+    "https": "node start-server.js",
     "push": "node src/backend-sender.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "//install-mkcert": "https://github.com/FiloSottile/mkcert",
     "install-mkcert": "mkcert -install localhost",
     "create-cert-files-in-folder": "rm -rf .cert && mkdir .cert && npm run create-cert-files",
-    "create-cert-files": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem 127.0.0.1"
+    "create-cert-files": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem localhost"
   },
   "keywords": [],
   "author": "",
@@ -23,9 +23,9 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
+    "browser-sync": "^3.0.2",
     "cross-env": "^7.0.3",
     "gh-pages": "^6.1.1",
-    "http-server": "^14.1.1",
     "web-push": "^3.6.7"
   }
 }
