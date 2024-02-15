@@ -2,12 +2,12 @@ body {
     background-color: #cfc7e2;
     font-family: Arial, sans-serif;
     font-size: 18px;
-    padding-bottom: 50px;
+    padding: 10px 10px 50px;
 }
 
 .wrapper {
     max-width: 800px;
-    margin: 0 auto;
+    margin-inline: auto;
 }
 
 @supports (-webkit-touch-callout: none) {
