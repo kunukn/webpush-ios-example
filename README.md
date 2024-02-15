@@ -76,7 +76,7 @@ npm run https # starts a server using the generated certificate files.
 # If you need to use an external ip like https://10.99.53.189:3033/ then re-generate the certificates with your ip.
 # See the script: "create-cert-files-external" in package.json and adjust the ip accordingly.
 # Then apply: npm run create-cert-files-in-folder-external
-# start https again nd open url in browser: https://10.99.53.189:3033/
+# start https again and open url in browser, adjust to your ip: e.g. https://10.99.53.189:3033/
 ```
 
 
