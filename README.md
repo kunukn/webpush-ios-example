@@ -112,8 +112,10 @@ See full example in [frontend.js](/frontend.js)
 
 
 ```shell
-# !! Ensure you have copied the correct keys into the backend-sender.js file.
-# Before running this.
+# !! Before running this.
+# Ensure you have copied the correct keys into the backend-sender.js file.
+# You can see the keys when clicking subscribe.
+
 npm install
 npm run push
 ```
