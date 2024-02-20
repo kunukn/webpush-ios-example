@@ -3,11 +3,16 @@ if (navigator.serviceWorker) {
 }
 
 async function initServiceWorker() {
-//   let swRegistration = await navigator.serviceWorker.register(
-//     'https://kunukn.github.io/webpush-ios-example/serviceworker.js',
-//     { scope: '/webpush-ios-example/' }
-//   )
-  let swRegistration = await navigator.serviceWorker.register('/serviceworker.js', {scope: '/webpush-ios-example/'})
+  //   let swRegistration = await navigator.serviceWorker.register(
+  //     'https://kunukn.github.io/webpush-ios-example/serviceworker.js',
+  //     { scope: '/webpush-ios-example/' }
+  //   )
+  //  let swRegistration = await navigator.serviceWorker.register('/serviceworker.js', {scope: '/webpush-ios-example/'})
+  let swRegistration = await navigator.serviceWorker.register(
+    '/serviceworker.js',
+    { scope: '/' }
+  )
+
   let pushManager = swRegistration.pushManager
 
   if (!isPushManagerActive(pushManager)) {
@@ -81,12 +86,21 @@ zpSM0NtSvV1vWuy--8aPJxbXmeacQjih3lMBSJTGAIU
 }
 
 function displaySubscriptionInfo(subscription) {
+  let keys = ''
+
+  try {
+    keys = JSON.stringify(subscription.toJSON())
+  } catch (ex) {
+    console.error(ex)
+    console.debug('subscription', subscription)
+  }
+
   document.getElementById('subscribe_btn').style.display = 'none'
   document.getElementById('active_sub').style.display = 'block'
   document.getElementById('active_sub').innerHTML =
     '<h3>Active subscription:</h3>' +
     '<textarea class="subscription-keys">' +
-    JSON.stringify(subscription.toJSON()) +
+    keys +
     '</textarea>'
   document.getElementById('test_send_btn').style.display = 'block'
 }
