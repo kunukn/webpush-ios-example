@@ -4,20 +4,18 @@ if (navigator.serviceWorker) {
 
 async function initServiceWorker() {
   // Github static deploy url related issue.
-  let url = '/serviceworker.js'
+  let swRegistration = null
   if (location.origin.includes('.github.io')) {
-    url = '/webpush-ios-example/serviceworker.js'
+    swRegistration = await navigator.serviceWorker.register(
+      'https://kunukn.github.io/webpush-ios-example/serviceworker.js',
+      { scope: '/webpush-ios-example/' }
+    )
+  } else {
+    swRegistration = await navigator.serviceWorker.register(
+      '/serviceworker.js',
+      { scope: '/' }
+    )
   }
-
-  //   let swRegistration = await navigator.serviceWorker.register(
-  //     'https://kunukn.github.io/webpush-ios-example/serviceworker.js',
-  //     { scope: '/webpush-ios-example/' }
-  //   )
-  //  let swRegistration = await navigator.serviceWorker.register('/serviceworker.js', {scope: '/webpush-ios-example/'})
-
-  let swRegistration = await navigator.serviceWorker.register(url, {
-    scope: '/',
-  })
 
   let pushManager = swRegistration.pushManager
 
