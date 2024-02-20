@@ -4,7 +4,7 @@ if (navigator.serviceWorker) {
 
 async function initServiceWorker() {
     let swRegistration = await navigator.serviceWorker.register('https://kunukn.github.io/webpush-ios-example/serviceworker.js', {scope: '/webpush-ios-example/'})
-    // let swRegistration = await navigator.serviceWorker.register('serviceworker.js', {scope: '/webpush-ios-example/'})
+    // let swRegistration = await navigator.serviceWorker.register('/serviceworker.js', {scope: '/webpush-ios-example/'})
     let pushManager = swRegistration.pushManager;
 
     if (!isPushManagerActive(pushManager)) {
