@@ -76,6 +76,18 @@ button {
   left: 10px;
 }
 
+#btn_notification_request {
+  position: fixed;
+  bottom: 10px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  right: 10px;
+  display: none;
+  cursor: pointer;
+  border: none;
+}
+
 .subscription-keys {
   width: 100%;
   min-height: 300px;
