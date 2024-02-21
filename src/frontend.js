@@ -59,15 +59,11 @@ async function subscribeToPush() {
   // Public part of VAPID key, generation of that covered in README
   // All subscription tokens associated with that key, so if you change it - you may lose old subscribers
 
-  /*
-Public Key:
-BAH3lauXWHqFKjP5lYnhT2-EqUdOZoRS4GPiUfu3RXMdkVDGNzqxYqW8ZMZO7JcZGbpozpwpd5yZV0q6NxPuBuk
 
-Private Key: THIS IS DEMO key.
-zpSM0NtSvV1vWuy--8aPJxbXmeacQjih3lMBSJTGAIU
-    */
+  // You MUST need generate your own VAPID keys! npx web-push generate-vapid-keys
+  // Must be indentical as the one used in backend-sender.js if testing web-push from backend.
   const VAPID_PUBLIC_KEY =
-    'BAH3lauXWHqFKjP5lYnhT2-EqUdOZoRS4GPiUfu3RXMdkVDGNzqxYqW8ZMZO7JcZGbpozpwpd5yZV0q6NxPuBuk'
+    'BAvWyGQoQQWGpJvphhz0Smag_nNLXrzbk7W1vO9x-KU9bg3aMyUD5ceR3jqRM8XhX_godkXh2GC8rHY4Rb59J54'
 
   let swRegistration = await navigator.serviceWorker.getRegistration()
   let pushManager = swRegistration.pushManager
