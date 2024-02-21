@@ -22,7 +22,7 @@ self.addEventListener('notificationclick', (event) => {
   if (newUrl.includes('?')) newUrl += '&utm_source=push'
   else newUrl += '?utm_source=push'
 
-  const analyticsPromise = async () => {
+  const promiseAnalytics = async () => {
     // You can save to your analytics fact that push was shown
     // fetch('https://your_backend_server.com/track_show?message_id=' + ..message_id);
   }
@@ -53,7 +53,7 @@ self.addEventListener('notificationclick', (event) => {
     })
 
     const promiseChain = Promise.all([
-      analyticsPromise,
+      promiseAnalytics,
       promiseFocusOrOpen,
     ])
 
@@ -72,13 +72,13 @@ self.addEventListener('push', (event) => {
     )
   }
 
-  const analyticsPromise = async () => {
+  const promiseAnalytics = async () => {
     // You can save to your analytics fact that push was shown
     // fetch('https://your_backend_server.com/track_show?message_id=' + ..message_id);
   }
 
   const promiseChain = Promise.all([
-    analyticsPromise,
+    promiseAnalytics,
     self.registration.showNotification(pushData.title, pushData),
   ])
 
