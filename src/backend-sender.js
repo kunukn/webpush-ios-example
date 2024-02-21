@@ -1,45 +1,39 @@
-// Public part of VAPID key, generation of that covered in README
-// All subscription tokens associated with that key, so if you change it - you may lose old subscribers
-// You MUST need generate your own VAPID keys!
-// Newer share your PRIVATE_VAPID_KEY. It should be stored in a safe storage. The one used here is a DEMO key.
-
 /*
-Public Key:
-BAH3lauXWHqFKjP5lYnhT2-EqUdOZoRS4GPiUfu3RXMdkVDGNzqxYqW8ZMZO7JcZGbpozpwpd5yZV0q6NxPuBuk
+ Public part of VAPID key, generation of that covered in README
+ All subscription tokens associated with that key, so if you change it - you may lose old subscribers
+ You MUST need generate your own VAPID keys! npx web-push generate-vapid-keys --json
+ Newer share your PRIVATE_VAPID_KEY. It should be stored in a safe storage. 
+ The one used here or in .env file is a DEMO key.
+*/
 
-Private Key: THIS IS DEMO key.
-zpSM0NtSvV1vWuy--8aPJxbXmeacQjih3lMBSJTGAIU
-    */
-
+require('dotenv').config()
 const webpush = require('web-push')
 
-const VAPID_PUBLIC_KEY =
-  'BAH3lauXWHqFKjP5lYnhT2-EqUdOZoRS4GPiUfu3RXMdkVDGNzqxYqW8ZMZO7JcZGbpozpwpd5yZV0q6NxPuBuk'
-const VAPID_PRIVATE_KEY = 'zpSM0NtSvV1vWuy--8aPJxbXmeacQjih3lMBSJTGAIU'
+// CHANGE TO YOUR TOKEN FOR TEST!
+// EDIT THE .env file
 
-// npm install web-push
-
+// Remeber the VAPID_PUBLIC_KEY must match the one in the frontend.js
 webpush.setVapidDetails(
-  'https://kunukn.github.io/webpush-ios-example/',
-  VAPID_PUBLIC_KEY,
-  VAPID_PRIVATE_KEY
+  process.env.WEBAPP_URL,
+  process.env.VAPID_PUBLIC_KEY,
+  process.env.VAPID_PRIVATE_KEY
 )
 
 // CHANGE TO YOUR TOKEN FOR TEST!
+// EDIT THE .env file
 // See in your browser, when you subscribe to push.
 const pushSubscription = {
-  endpoint:
-    'https://web.push.apple.com/QOIx5p4FH2bt39manO861lMX4XlO8W...',
+  endpoint: process.env.endpoint,
+  expirationTime: null,
   keys: {
-    p256dh:
-      'BMvgoP9PHT4i_APyN2H0X8w7ZOFfFh9RoDYovXKLh3SBwLbO9pZvCgKBn1oElFwrG32Bj-r..',
-    auth: 'bsRhyYVQGczYYS06XM-..',
+    p256dh: process.env.p256dh,
+    auth: process.env.auth,
   },
 }
 
 let pushData = JSON.stringify({
   title: 'From server: Push demo',
-  body: 'Additional text with some description ' + Date.now(),
+  body: 'Additional text with some description ' + new Date(),
   icon: 'https://kunukn.github.io/webpush-ios-example/images/favicon.png',
   image:
     'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg/1920px-Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg',
