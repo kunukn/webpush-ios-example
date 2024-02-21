@@ -18,15 +18,21 @@ self.addEventListener('notificationclick', (event) => {
     return
   }
 
-  event.waitUntil(async () => {
-    // let url = new URL(event.notification.data.url)
-    // url.searchParams.append('utm_source', 'push')
+  let newUrl = event.notification.data.url
+  if (newUrl.includes('?')) newUrl += '&utm_source=push'
+  else newUrl += '?utm_source=push'
 
-    await clients.openWindow(event.notification.data.url)
+  const analyticsPromise = async () => {
+    // You can save to your analytics fact that push was shown
+    // fetch('https://your_backend_server.com/track_show?message_id=' + event.notification.data.message_id);
+  }
 
-    // You can send fetch request to your analytics API fact that push was clicked
-    // fetch('https://your_backend_server.com/track_click?message_id=' + event.notification.data.message_id);
-  })
+  const promiseChain = Promise.all([
+    analyticsPromise,
+    clients.openWindow(newUrl),
+  ])
+
+  event.waitUntil(promiseChain)
 })
 
 self.addEventListener('push', (event) => {
@@ -41,12 +47,17 @@ self.addEventListener('push', (event) => {
     )
   }
 
-  event.waitUntil(async () => {
-    await self.registration.showNotification(pushData.title, pushData)
-
+  const analyticsPromise = async () => {
     // You can save to your analytics fact that push was shown
     // fetch('https://your_backend_server.com/track_show?message_id=' + pushData.data.message_id);
-  })
+  }
+
+  const promiseChain = Promise.all([
+    analyticsPromise,
+    self.registration.showNotification(pushData.title, pushData),
+  ])
+
+  event.waitUntil(promiseChain)
 })
 
 self.addEventListener('notificationclose', (event) => {
