@@ -38,12 +38,15 @@ self.addEventListener('notificationclick', async (event) => {
     return
   }
 
-  event.waitUntil(
-    await clients.openWindow(event.notification.data.url)
+  event.waitUntil(async () => {
+    let url = new URL(event.notification.data.url)
+    url.searchParams.append('utm_source', 'push')
+
+    await clients.openWindow(url.toString())
 
     // You can send fetch request to your analytics API fact that push was clicked
     // fetch('https://your_backend_server.com/track_click?message_id=' + event.notification.data.message_id);
-  )
+  })
 })
 
 self.addEventListener('notificationclose', (event) => {
