@@ -1,22 +1,33 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
-    <title>WebPush iOS example 456</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <!-- <base href="https://kunukn.github.io/webpush-ios-example/"> -->
-    <link rel="manifest" href="manifest.json"/>
+    <title>WebPush iOS, Android and PWA example 456</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="manifest.json" />
     <link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
-<div class="wrapper">
-    <h1>WebPush iOS example</h1>
+    <div class="wrapper">
+        <h1>WebPush iOS, Android and PWA example</h1>
 
-    <p>You successfully opened page from WebPush! (this url was that was set in json data param)</p>
+        <p>You successfully opened page from WebPush! (this url was that was set in json data param)</p>
 
-    <a href="/">Go to home screen</a>
-</div>
+        <a id="go_home_link" href="/">Go to home screen</a>
+    </div>
 
-<a id="source_link" href="https://github.com/kunukn/webpush-ios-example">Code of this page</a>
+    <a id="source_link" href="https://github.com/kunukn/webpush-ios-example">Code of this page</a>
+
+    <script>
+        // Github static page specific coding. 
+        // The url is not the same as the root url for Github.
+        let gohome = document.getElementById('go_home_link');
+
+        if (gohome && self.location.origin.includes('.github.io')) {
+            gohome.href = '/webpush-ios-example/';
+        }
+    </script>
 </body>
-</html>
 
+</html>
