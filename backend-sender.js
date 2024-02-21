@@ -14,7 +14,7 @@ const webpush = require('web-push')
 
 // Remeber the VAPID_PUBLIC_KEY must match the one in the frontend.js
 webpush.setVapidDetails(
-  process.env.WEBAPP_URL,
+  process.env.WEBAPP_URL, // look in .env file.
   process.env.VAPID_PUBLIC_KEY,
   process.env.VAPID_PRIVATE_KEY
 )
@@ -23,7 +23,7 @@ webpush.setVapidDetails(
 // EDIT THE .env file
 // See in your browser, when you subscribe to push.
 const pushSubscription = {
-  endpoint: process.env.endpoint,
+  endpoint: process.env.endpoint, // look in .env file.
   expirationTime: null,
   keys: {
     p256dh: process.env.p256dh,
