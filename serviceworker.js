@@ -1,4 +1,4 @@
-self.addEventListener('push', (event) => {
+self.addEventListener('push', async (event) => {
   console.debug('push', event)
 
   // PushData keys structure standart https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification
@@ -9,13 +9,16 @@ self.addEventListener('push', (event) => {
       pushData
     )
   }
-  self.registration.showNotification(pushData.title, pushData).then(() => {
+
+  event.waitUntil(
+    await self.registration.showNotification(pushData.title, pushData)
+
     // You can save to your analytics fact that push was shown
     // fetch('https://your_backend_server.com/track_show?message_id=' + pushData.data.message_id);
-  })
+  )
 })
 
-self.addEventListener('notificationclick', (event) => {
+self.addEventListener('notificationclick', async (event) => {
   console.debug('notificationclick', event)
 
   event.notification.close()
@@ -35,8 +38,14 @@ self.addEventListener('notificationclick', (event) => {
     return
   }
 
-  clients.openWindow(event.notification.data.url).then(() => {
+  event.waitUntil(
+    await clients.openWindow(event.notification.data.url)
+
     // You can send fetch request to your analytics API fact that push was clicked
     // fetch('https://your_backend_server.com/track_click?message_id=' + event.notification.data.message_id);
-  })
+  )
+})
+
+self.addEventListener('notificationclose', (event) => {
+  console.debug('notificationclose', event)
 })
