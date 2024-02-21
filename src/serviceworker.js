@@ -24,7 +24,7 @@ self.addEventListener('notificationclick', (event) => {
 
   const analyticsPromise = async () => {
     // You can save to your analytics fact that push was shown
-    // fetch('https://your_backend_server.com/track_show?message_id=' + event.notification.data.message_id);
+    // fetch('https://your_backend_server.com/track_show?message_id=' + ..message_id);
   }
 
   const promiseChain = Promise.all([
@@ -49,7 +49,7 @@ self.addEventListener('push', (event) => {
 
   const analyticsPromise = async () => {
     // You can save to your analytics fact that push was shown
-    // fetch('https://your_backend_server.com/track_show?message_id=' + pushData.data.message_id);
+    // fetch('https://your_backend_server.com/track_show?message_id=' + ..message_id);
   }
 
   const promiseChain = Promise.all([
