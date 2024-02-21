@@ -11,6 +11,7 @@ async function initServiceWorker() {
       { scope: '/webpush-ios-example/' }
     )
   } else {
+    // You should normally use this.
     swRegistration = await navigator.serviceWorker.register(
       '/serviceworker.js',
       { scope: '/' }
