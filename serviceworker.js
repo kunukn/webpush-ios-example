@@ -27,10 +27,35 @@ self.addEventListener('notificationclick', (event) => {
     // fetch('https://your_backend_server.com/track_show?message_id=' + ..message_id);
   }
 
-  const promiseChain = Promise.all([
-    analyticsPromise,
-    clients.openWindow(newUrl),
-  ])
+  // https://web-push-book.gauntface.com/common-notification-patterns/
+  const urlToOpen = new URL(newUrl, self.location.origin).href
+  const promiseFocusOrOpen = clients
+    .matchAll({
+      type: 'window',
+      includeUncontrolled: true,
+    })
+    .then((windowClients) => {
+      let matchingClient = null
+
+      for (let i = 0; i < windowClients.length; i++) {
+        const windowClient = windowClients[i]
+        if (windowClient.url === urlToOpen) {
+          matchingClient = windowClient
+          break
+        }
+      }
+
+      if (matchingClient) {
+        return matchingClient.focus()
+      } else {
+        return clients.openWindow(newUrl)
+      }
+    })
+
+    const promiseChain = Promise.all([
+      analyticsPromise,
+      promiseFocusOrOpen,
+    ])
 
   event.waitUntil(promiseChain)
 })
