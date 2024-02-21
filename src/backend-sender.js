@@ -1,7 +1,7 @@
 /*
  Public part of VAPID key, generation of that covered in README
  All subscription tokens associated with that key, so if you change it - you may lose old subscribers
- You MUST need generate your own VAPID keys! npx web-push generate-vapid-keys --json
+ You MUST need generate your own VAPID keys! npx web-push generate-vapid-keys
  Newer share your PRIVATE_VAPID_KEY. It should be stored in a safe storage. 
  The one used here or in .env file is a DEMO key.
 */
