@@ -60,7 +60,6 @@ async function subscribeToPush() {
   // Public part of VAPID key, generation of that covered in README
   // All subscription tokens associated with that key, so if you change it - you may lose old subscribers
 
-
   // You MUST need generate your own VAPID keys! npx web-push generate-vapid-keys
   // Must be indentical as the one used in backend-sender.js if testing web-push from backend.
   const VAPID_PUBLIC_KEY =
@@ -143,6 +142,26 @@ function notificationRequest() {
         break
     }
   })
+}
+
+async function getSubscriptionPersistedInBrowser() {
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
+    let swReg = await navigator.serviceWorker.getRegistration()
+    if (!swReg.pushManager) return 'pushManager is nil'
+
+    let permissionState = await swReg.pushManager.permissionState({
+      userVisibleOnly: true,
+    })
+
+    if (permissionState === 'granted') {
+      var subscription = await swReg.pushManager.getSubscription()
+      return subscription && subscription.toJSON()
+    }
+
+    return 'permissionState is ' + permissionState
+  }
+
+  return null
 }
 
 if (self.Notification?.permission === 'default') {
