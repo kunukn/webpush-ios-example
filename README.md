@@ -117,6 +117,7 @@ See full example in [frontend.js](/frontend.js)
 # You can see the keys when clicking subscribe.
 
 npm install
+npm run create-env
 npm run push
 ```
 
