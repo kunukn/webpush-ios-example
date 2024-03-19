@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "_WebPush - is browser technology that allows site developer send notifications from backend to subscribers. Now at iPhone and iPad!<br><br>_\r **TL;DR iOS WebPush specifics**\r - user required to add your site to **Home Screen** of his iPhone/iPad\r - manifest.json is required to set **display: standalone**\r - you **don't need** to register at apple.com to receive something like **GCM_SENDER_ID**\r - instead, you need to generate **VAPID** (pair of public and private keys)\r <br>",
   "main": "backend-sender.js",
+  "type": "module",
   "homepage": "https://kunukn.github.io/webpush-ios-example/",
   "scripts": {
+    "create-env": "node create-env-file.js",
     "deploy": "cross-env NODE_DEBUG=gh-pages gh-pages -d ./src -t true",
     "start": "browser-sync ./src -w --port 8089 --open",
     "https": "node start-server.js",
@@ -12,10 +14,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "//install-mkcert": "https://github.com/FiloSottile/mkcert",
     "install-mkcert": "mkcert -install localhost",
-    "create-cert-files-in-folder": "rm -rf .cert && mkdir .cert && npm run create-cert-files",
-    "create-cert-files": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem localhost",
-    "create-cert-files-in-folder-external": "rm -rf .cert && mkdir .cert && npm run create-cert-files-external",
-    "create-cert-files-external": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem 10.99.53.189"
+    "create-cert-files-in-folder": "rm -rf .cert && mkdir .cert && npm run _create-cert-files",
+    "_create-cert-files": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem localhost",
+    "create-cert-files-in-folder-external": "rm -rf .cert && mkdir .cert && npm run _create-cert-files-external",
+    "_create-cert-files-external": "mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem 10.99.53.189"
   },
   "keywords": [],
   "author": "",
