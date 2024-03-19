@@ -1,3 +1,6 @@
+import dotenv from 'dotenv'
+import webpush from 'web-push'
+
 /*
  Public part of VAPID key, generation of that covered in README
  All subscription tokens associated with that key, so if you change it - you may lose old subscribers
@@ -6,8 +9,7 @@
  The one used here or in .env file is a DEMO key.
 */
 
-require('dotenv').config()
-const webpush = require('web-push')
+dotenv.config()
 
 // CHANGE TO YOUR TOKEN FOR TEST!
 // EDIT THE .env file
